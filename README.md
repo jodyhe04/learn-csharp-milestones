@@ -75,7 +75,7 @@ Diving into Variables, Types, and Methods (38–64)
 		- [ ] Define a simple method with parameters
 		- [ ] Add a return type and return some data from a method
 		- [ ] Use data returned from a method
-- [ ] ✏️ Explain some differences between public and private variables: **??**
+- [ ] ✏️ Explain some differences between public and private variables: a public variable can be accessed from anywhere in the program, while private variables can be only accessed within the same class.Also, public variables are used for variables or methods that need to be accessed directly by other classes or objects, private variables are sed for  details or sensitive data that shouldn't be directly accessed by other classes.
 
 
 ## Chapter 4
