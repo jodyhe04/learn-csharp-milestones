@@ -75,7 +75,7 @@ Diving into Variables, Types, and Methods (38–64)
 		- [ ] Define a simple method with parameters
 		- [ ] Add a return type and return some data from a method
 		- [ ] Use data returned from a method
-- [ ] ✏️ Explain some differences between public and private variables: **??**
+- [ ] ✏️ Explain some differences between public and private variables: a public variable can be accessed from anywhere in the program, while private variables can be only accessed within the same class.Also, public variables are used for variables or methods that need to be accessed directly by other classes or objects, private variables are sed for  details or sensitive data that shouldn't be directly accessed by other classes.
 
 
 ## Chapter 4
@@ -88,7 +88,7 @@ Control Flow and Collection Types (65–93)
 		- [ ] Write a nested `if` statement
 		- [ ] Write a `switch` statement
 	- [ ] Collections
-		- [ ] ✏️ What will `arr[1]` return from this array `int[] arr = {'red','green','blue'};` ? : **??**
+		- [ ] ✏️ What will `arr[1]` return from this array `int[] arr = {'red','green','blue'};` ? : error
 		- [ ] Write an Array of the type `int[]`
 		- [ ] Write a List of the type `List<string>`
 		- [ ] Write a Dictionary of the type `Dictionary<string, int>`
@@ -103,7 +103,7 @@ Control Flow and Collection Types (65–93)
 Working with Classes, Structs, and OOP (94–119)
 
 - Classes
-	- [ ] ✏️ Explain the difference between reference and value type variables: **??**
+	- [ ] ✏️ Explain the difference between reference and value type variables: Value type stores data while Reference type stores the data in memory
 	- [ ] Create Assets/Scripts/Character.cs
 		- [ ] Create a `Character` class
 		- [ ] Create `string` and `int` fields inside the Character class
