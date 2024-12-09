@@ -135,10 +135,7 @@ public class LearningCurve : MonoBehaviour
 }
 
     }
-}
 
-    }
-}
 public class LearningCurve
 {
     public static void Main()
@@ -210,4 +207,91 @@ public class Character
     }
 }
 
+public class PlayerMovement : MonoBehaviour
+{
+    public float moveSpeed = 5f; 
 
+    void Update()
+    {
+        float moveX = Input.GetAxis("Horizontal"); 
+        float moveZ = Input.GetAxis("Vertical");   
+
+       
+        Vector3 moveDirection = new Vector3(moveX, 0, moveZ);
+
+        transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
+    }
+}
+
+public class CameraFollow : MonoBehaviour
+{
+    public Transform player;
+    public Vector3 offset = new Vector3(0, 5, -10);
+    void Update()
+    {
+        transform.position = player.position + offset;
+        transform.LookAt(player);
+    }
+}
+
+
+public class DestroyObject : MonoBehaviour
+{
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy") 
+        {
+            Destroy(collision.gameObject); 
+        }
+    }
+}
+public class TriggerHandler : MonoBehaviour
+{
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Entered Trigger with: " + other.gameObject.name);
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        Debug.Log("Exited Trigger with: " + other.gameObject.name);
+    }
+}
+
+
+public class CharacterControl : MonoBehaviour
+{
+    public float jumpForce = 5f; 
+    private Rigidbody rb;
+    private bool isGrounded = false; 
+    public LayerMask groundLayer; // Ground Layer
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if ((1 << collision.gameObject.layer & groundLayer) != 0)
+        {
+            isGrounded = true;
+        }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if ((1 << collision.gameObject.layer & groundLayer) != 0)
+        {
+            isGrounded = false;
+        }
+    }
+}
