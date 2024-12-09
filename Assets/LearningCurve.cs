@@ -12,11 +12,8 @@ public class NewBehaviourScript : MonoBehaviour
     void Start()
     {
         Update(); 
-        // create int string float and bool variables
 
     }
-
-    // Update is called once per frame
     void Update()
     {
        Debug.Log(str + "string");
@@ -264,7 +261,7 @@ public class CharacterControl : MonoBehaviour
     public float jumpForce = 5f; 
     private Rigidbody rb;
     private bool isGrounded = false; 
-    public LayerMask groundLayer; // Ground Layer
+    public LayerMask groundLayer; 
 
     void Start()
     {
