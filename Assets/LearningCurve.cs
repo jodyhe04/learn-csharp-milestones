@@ -109,6 +109,28 @@ public class LearningCurve : MonoBehaviour
 
         Debug.Log("Weapon: " + huntingBow.name + ", Damage: " + huntingBow.damage);
         Debug.Log("Weapon: " + warBow.name + ", Damage: " + warBow.damage);
+
+         Paladin knight = new Paladin("Sir Gallant", "Sword of Light");
+
+        
+        knight.PrintStatsInfo();
+
+       
+        Transform mainCameraTransform = Camera.main.GetComponent<Transform>();
+        Debug.Log($"Main Camera localPosition: {mainCameraTransform.localPosition}");
+
+        GameObject lightObject = GameObject.Find("Light");
+
+        if (lightObject != null)
+        {
+            Transform lightTransform = lightObject.GetComponent<Transform>();
+            Debug.Log($"Light localPosition: {lightTransform.localPosition}");
+        }
+        else
+        {
+            Debug.LogWarning("Light GameObject not found!");
+        }
+
     }
 }
 
@@ -144,6 +166,8 @@ public class Character
         level = charLevel;
     }
 
+    
+
      public struct Weapon
     {
         public string name; 
@@ -154,6 +178,36 @@ public class Character
             damage = weaponDamage;
         }
     }
+
+    public string Name { get; set; }
+    public int Level { get; set; }
+
+    public Character()
+    {
+        Name = "Unnamed Hero";
+        Level = 1;
+    }
+
+    public virtual void PrintStatsInfo()
+    {
+        Debug.Log($"Name: {Name}, Level: {Level}");
+    }
 }
 
+    public class Paladin : Character
+{
+        public string Weapon { get; set; }
+
+     public Paladin(string name, string weapon) : base()
+    {
+        Name = name;
+        Weapon = weapon;
+    }
+
+    public override void PrintStatsInfo()
+    {
+        Debug.Log($"Name: {Name}, Level: {Level}, Weapon: {Weapon}");
+    }
 }
+
+
